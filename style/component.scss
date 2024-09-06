@@ -1,0 +1,22 @@
+.btn{
+        &.btn__primary{
+            @apply bg-btn text-black font-semibold py-[12px] px-[24px] rounded-[31px] flex justify-center items-center text-center
+        }
+        &.btn__secondary{
+            @apply bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 
+        }
+        &.btn__feature{
+            @apply border border-iconGray font-semibold py-[8px] px-[8px] rounded-[100px] flex justify-center items-center
+        }
+}
+.bg{
+    &.bg__primary{
+        @apply bg-biru
+    }
+    &.bg__secondary{
+        @apply bg-emerald-300
+    }
+    &.bg__hero{
+        @apply bg-hero-pattern
+    }
+}
