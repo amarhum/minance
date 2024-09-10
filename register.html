@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Register Page</title>
+</head>
+
+<body>
+    <main class="grid md:grid-cols-2 grid-cols-1 h-screen">
+        <!-- Left Section -->
+        <div class="h-full flex flex-col bg-biru">
+            <div class="lg:pl-[60px] md:px-[32px] px-[24px] text-center md:text-left mt-[80px] text-white">
+                <h1 class="md:text-[40px] md:leading-[54px] text-[32px] leading-[42px] font-semibold font-inter mb-4">Efficient and Easy to Use</h1>
+                <p class="text-[14px] leading-[24px] font-inter text-line mt-[16px]">We provide transactions with many currencies in the world and trusted security to protect your wallet.</p>
+            </div>
+            <figure class="mt-auto">
+                <img class="w-full" src="./src/assets/bg-login.png" alt="background login">
+            </figure>
+        </div>
+
+        <!-- Right Section -->
+        <div class="flex justify-center items-center px-[24px]">
+            <div class="p-6 border border-line mt-[-250px] md:mt-0 md:border-none rounded-[24px] w-[384px] bg-white">
+                <!-- Back Button -->
+                <a class="flex items-center mb-6 hover:cursor-pointer" href="./index.html">
+                    <img class=" mr-2" src="./src/assets/arrowBack.png" alt="arrow">
+                    <p>Back</p>
+                </a>
+                <!-- Register Form -->
+                <h2 class="text-2xl font-semibold mb-6">Registration</h2>
+                <form action="#" class="mb-[12px]">
+                    <!-- first and last name -->
+                    <div class="md:flex block gap-[16px] mb-4">
+                        <div class="flex-1 border rounded-[100px] py-[14px] px-[16px] flex gap-[6px]">
+                            <img src="./src/assets/mail_icon.svg" alt="ico mail">
+                            <input type="text" name="firstName" id="firstName" placeholder="First Name"
+                                class="bg-transparent outline-none focus:ring-transparent w-full">
+                        </div>
+                        <div class="flex-1 border rounded-[100px] py-[14px] px-[16px] flex gap-[6px] mt-[16px] md:mt-0">
+                            <img src="./src/assets/mail_icon.svg" alt="ico mail">
+                            <input type="text" name="lastName" id="lastName" placeholder="Last Name"
+                                class="bg-transparent outline-none focus:ring-transparent w-full">
+                        </div>
+                    </div>
+                    <!-- email -->
+                    <div class="flex gap-[6px] border rounded-[100px] py-[14px] px-[16px]">
+                        <img src="./src/assets/mail_icon.svg" alt="ico mail">
+                        <input type="text" name="email" id="email" placeholder="your email" 
+                            class="bg-transparent outline-none focus:ring-transparent">
+                    </div>
+                    <!-- phone numver -->
+                    <div class="flex mt-[16px]">
+                        <!-- drop down phone -->
+                         <div class="border rounded-tl-[100px] rounded-bl-[100px] py-[14px] px-[16px] bg-line">
+                            <div x-data="{ open: false, selectNum: '+62' }">
+                                <!-- Toggler Dropdown -->
+                                <div class="flex items-center space-x-2 cursor-pointer" @click="open = !open">
+                                    <img :src="selectNum === '+62' ? './src/assets/Indonesian_flag.svg' : './src/assets/England_flag.svg'" alt="flag">
+                                    <img class="transform transition-transform duration-200" src="./src/assets/arrowBack.png" alt="arrow" :class="open ? 'rotate-90' : '-rotate-90'">
+                                    <p x-text="selectNum"></p>
+                                </div>
+                                <!-- Dropdown Menu -->
+                                <div x-show="open" class="mt-2 bg-white absolute border rounded-lg shadow-lg p-2">
+                                    <ul>
+                                        <li @click="selectNum = '+62'; open = false" class="cursor-pointer px-2 py-1 hover:bg-gray-100">+62</li>
+                                        <li @click="selectNum = '+44'; open = false" class="cursor-pointer px-2 py-1 hover:bg-gray-100">+44</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                         </div>
+                         <div class="flex gap-[6px] border rounded-tr-[100px] rounded-br-[100px] py-[14px] px-[16px]">
+                            <input type="number" name="email" id="email" placeholder="000 000 000" 
+                                class="bg-transparent outline-none focus:ring-transparent">
+                        </div>
+                    </div>
+                    <!-- password -->
+                    <div class="flex gap-[6px] border rounded-[100px] py-[14px] px-[16px] mt-[16px]">
+                        <img src="./src/assets/pw_icon.svg" alt="password icon" >
+                        <input type="password" name="password" id="password" placeholder="*********"
+                            class=" rounded-md focus:outline-none focus:ring-2 focus:ring-transparent">
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <input type="checkbox" name="remember" id="remember" class="mr-2">
+                            <label for="remember" class="text-sm">Remember me</label>
+                        </div>
+                        <a href="#" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
+                    </div>
+
+                    <!-- Register Button -->
+                    <button type="submit"
+                        class="btn btn__primary w-full rounded-[100px]">
+                        Register
+                    </button>
+                </form>
+                <!-- register link -->
+                 <div class="text-center">
+                     <p class="text-[14px] leading-[24px]">You have account ? <span><a href="./login.html" class="text-blue-600 hover:underline font-bold ml-2">Login</span></p>
+                 </div>
+                 <!-- or line -->
+                  <div class="flex justify-center items-center text-center mb-[24px]">
+                    <div class="border border-orLine w-full h-0"></div>
+                    <p class="p-2">or</p>
+                    <div class="border border-orLine w-full h-0"></div>
+                  </div>
+                  <!-- google login -->
+                   <div>
+                    <button class="flex rounded-[100px] bg-btnGoogle w-full py-[14px] justify-center items-center text-center gap-[6px]">
+                        <img src="./src/assets/googleIcon.svg" alt="icon google">
+                        <p>Login with Google</p>
+                    </button>
+                   </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

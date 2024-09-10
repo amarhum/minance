@@ -4,169 +4,165 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./script/custom.js"></script>
-    <title>Mangcoding Template</title>
+    <!-- <script src="./script/custom.js"></script> -->
+    <title>Home Page</title>
   </head>
   <body>
-    <main id="app">
-      <header class="w-full bg-biru">
-        <div class="container pt-[14px] bg bg__hero bg-no-repeat bg-cover">
-          <!-- Navbar -->
-          <nav class="flex justify-between items-center w-full">
-            <figure>
-                <img src="./src/assets/logo-main.svg" alt="logo coba">
-            </figure>
-            <div class="md:flex justify-center items-center hidden">
-                <ul class="flex justify-center items-center lg:gap-[48px] md:gap-[24px] text-[14px] leading-[24px] font-inter">
-                    <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">About</a></li>
-                    <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">Download</a></li>
-                    <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">Contact</a></li>
-                </ul>
-                <div class="border h-[32px] border-line w-0 md:mx-[14px] lg:mx-[32px]"></div>
-                <!-- drop down dekstop-->
-                <div class="flex justify-center items-center md:gap-[16px] lg:gap-[32px]">
-                    <div x-data="{open: false , selectLanguage : 'ENG'}" class="relative border border-white px-[10px] py-[8px] rounded-[100px] flex gap-[4px] justify-center items-center">
-                        <button @click="open = !open">
-                            <span class="text-white text-[14px] leading-[24px] font-semibold" x-text="selectLanguage"></span>
-                        </button>
-                        <img src="./src/assets/arrow.svg" class="transform duration-500" :class="{'rotate-180': open, ' rotate-0': !open}" alt="arrow">
-                        <img class="rounded-[100px]" :src="selectLanguage === 'ENG' ? './src/assets/eng-flags.svg' : './src/assets/idn-flag.svg'" alt="flag">
-                        <div x-show="open" class="absolute top-[45px] right-[10px] border border-white shadow-lg rounded-lg py-2 z-10">
-                            <ul class="py-2">
-                                <li class="px-7 py-2" @click="selectLanguage = 'ENG'; open = false"><a href="#">ENG</a></li>
-                                <li class="px-7 py-2" @click="selectLanguage = 'IND' ; open = false"><a href="#">IND</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <button class="btn btn__primary">sign up</button>
-                </div>
-            </div>
-            <!-- side bar  -->
-            <div x-data="{modal: false}" class="md:hidden">
-              <figure @click="modal = !modal">
-                <img src="./src/assets/menu-bar.svg" alt="bar">
-              </figure>
-              <!-- modal side bar -->
-              <div class="absolute h-screen w-full left-0 top-0 px-[24px] py-[12px] bg-white duration-500 transition-transform" x-show="modal" @click.away="modal = false" > 
-                <figure class="flex justify-between">
-                  <img src="./src/assets/logo-mobile.svg" alt="logo-mobile">
-                  <img @click="modal = !modal" src="./src/assets/close.svg" alt="close">
-                </figure>
-                <div class="mt-[24px]">
-                  <ul class="mb-[32px]">
-                    <li class="py-[12px]"><a class=" text-black font-inter" href="#">About</a></li>
-                    <li class="py-[12px]"><a class=" text-black font-inter" href="#">Download</a></li>
-                    <li class="py-[12px]"><a class=" text-black font-inter" href="#">Contact</a></li>
-                  </ul>
-                  <!-- drop down mobile-->
-                  <div class="flex flex-col justify-center items-center">
-                    <div x-data="{ open: false, selectLanguage: 'ENG' }" class="relative border border-line w-full px-[10px] py-[8px] rounded-[100px] flex gap-[4px] justify-between items-center cursor-pointer">
-                      <div class="flex items-center gap-2" @click="open = !open">
-                        <button>
-                          <span class="text-black text-[14px] leading-[24px] font-semibold" x-text="selectLanguage"></span>
-                        </button>
-                        <img src="./src/assets/arrow.svg" class="transform duration-500" :class="{ 'rotate-180': open, 'rotate-0': !open }" alt="arrow">
-                      </div>
-                  
-                      <!-- Flag Image -->
+    <header class="w-full bg-biru">
+      <!-- Navbar -->
+      <nav class="w-full py-[14px] bg-biru fixed z-10">
+        <div class="flex justify-between items-center container mx-auto ">
+          <figure>
+              <img src="./src/assets/logo-main.svg" alt="logo coba">
+          </figure>
+          <div class="md:flex justify-center items-center hidden">
+              <ul class="flex justify-center items-center lg:gap-[48px] md:gap-[24px] text-[14px] leading-[24px] font-inter">
+                  <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">About</a></li>
+                  <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">Download</a></li>
+                  <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">Contact</a></li>
+              </ul>
+              <div class="border h-[32px] border-line w-0 md:mx-[14px] lg:mx-[32px]"></div>
+              <!-- drop down dekstop-->
+              <div class="flex justify-center items-center md:gap-[16px] lg:gap-[32px] bg-biru">
+                  <div x-data="{open: false , selectLanguage : 'ENG'}" class="relative border border-white px-[10px] py-[8px] rounded-[100px] flex gap-[4px] justify-center items-center">
+                      <button @click="open = !open">
+                          <span class="text-white text-[14px] leading-[24px] font-semibold" x-text="selectLanguage"></span>
+                      </button>
+                      <img src="./src/assets/arrow.svg" class="transform duration-500" :class="{'rotate-180': open, ' rotate-0': !open}" alt="arrow">
                       <img class="rounded-[100px]" :src="selectLanguage === 'ENG' ? './src/assets/eng-flags.svg' : './src/assets/idn-flag.svg'" alt="flag">
-                  
-                      <!-- Dropdown Menu-->
-                      <div x-show="open" @click.away="open = false" class="absolute top-full mt-2 w-full bg-white shadow-lg rounded-lg py-2 z-10">
-                        <ul class="text-black">
-                          <li @click="selectLanguage = 'ENG'; open = false" class="hover:bg-gray-200 px-4 py-2 cursor-pointer">
-                            <a href="#">ENG</a>
-                          </li>
-                          <li @click="selectLanguage = 'IND'; open = false" class="hover:bg-gray-200 px-4 py-2 cursor-pointer">
-                            <a href="#">IND</a>
-                          </li>
-                        </ul>
+                      <div x-show="open" class="absolute top-[45px] right-[10px] border border-white shadow-lg rounded-lg py-2 z-10 bg-biru">
+                          <ul class="py-2 ">
+                              <li class="px-7 py-2 hover:cursor-pointer" @click="selectLanguage = 'ENG'; open = false"><a  class="hover:border-b border-white">ENG</a></li>
+                              <li class="px-7 py-2 hover:cursor-pointer" @click="selectLanguage = 'IND' ; open = false"><a class="hover:border-b border-white">IND</a></li>
+                          </ul>
                       </div>
-                    </div>
-                    <button class="btn btn__primary w-full mt-[12px]">sign up</button>
                   </div>
-                </div>
+                  <button class="btn btn__primary"><a class="text-black" href="./login.html">sign up</a></button>
               </div>
-            </div>
-          </nav>
-          <!-- banner -->
-          <div class="text-center items-center flex flex-col">
-            <h1 class="font-semibold font-inter lg:text-[64px] lg:leading-[88px] md:text-[48px] md:leading-[64px] text-[32px] leading-[42px] text-white  md:my-[32px] lg:my-[60px] my-[24px]">Save your finances and transfer to any bank in the world</h1>
-            <div class="block md:flex md:justify-between w-full">
-              <div class=" flex flex-col md:justify-end md:items-start sm:justify-center sm:items-center md:mb-[60px] md:mr-[22px]">
-                <p class="font-inter lg:text-[16px] lg:leading-[26px] text-[14px] leading-[24px] md:w-[242px] text-line md:text-left sm:text-center">Making it fun and easy for you to transfer, top up and receive money from anywhere in the world, with more currencies easy to do</p>
-                <button class="btn btn__primary mt-[24px] mb-[40px]">Create Account now</button>
-                <!-- looping users -->
-                <div class="flex" x-data="{ 
-                  users: [
-                  { img: './src/assets/person-1.svg' }, 
-                  { img: './src/assets/person-2.svg' }, 
-                  { img: './src/assets/person-3.svg' }, 
-                  { img: './src/assets/person-4.svg' }, 
-                  { img: './src/assets/person-5.svg' }] 
-                }">
-                  <template x-for="user in users" :key="user.img">
-                    <figure>
-                      <img class="" :src="user.img" alt="User image">
-                    </figure>
-                  </template>
-                </div>
-                <!-- statistik -->
-                <div class=" md:hidden flex items-center gap-[26px] mt-[24px] mb-[40px]" x-data = "{
-                statistik : [
-                {
-                  f : '1k+',
-                  s : 'User Use'
-                },
-                {
-                  f : '20k+',
-                  s : 'Satisfied Customer'
-                },
-                {
-                  f : '4.9+',
-                  s : 'Rating'
-                }
-                ]}">
-                  <template x-for="stat in statistik" :key="stat.f">
-                    <div class="">
-                      <p class="font-inter font-semibold text-white text-[14px] leading-[24px]" x-text="stat.f"></p>
-                      <p class="text-line text-[14px] leading-[24px] font-inter" x-text="stat.s"></p>
-                    </div>
-                  </template>
-                </div>
-              </div>
-              <!-- banner phone -->
-              <figure class="flex justify-end">
-                <img class="w-[100%]" src="./src/assets/banner-phone.png" alt="phone-banner">
+          </div>
+          <!-- side bar  -->
+          <div x-data="{modal: false}" class="md:hidden">
+            <figure @click="modal = !modal">
+              <img src="./src/assets/menu-bar.svg" alt="bar">
+            </figure>
+            <!-- modal side bar -->
+            <div class="absolute h-screen w-full left-0 top-0 px-[24px] py-[12px] bg-white duration-500 transition-transform" x-show="modal" @click.away="modal = false" > 
+              <figure class="flex justify-between">
+                <img src="./src/assets/logo-mobile.svg" alt="logo-mobile">
+                <img @click="modal = !modal" src="./src/assets/close.svg" alt="close">
               </figure>
-              <!-- statistik phone dekstop -->
-              <div class=" hidden md:flex md:flex-col md:justify-end md:mb-[60px] md:ml-[50px]" x-data = "{statistik : [
-                {
-                  f : '1k+',
-                  s : 'User Use'
-                },
-                {
-                  f : '20k+',
-                  s : 'Satisfied Customer'
-                },
-                {
-                  f : '4.9+',
-                  s : 'Rating'
-                }
-                ]}">
-                  <template x-for="stat in statistik" :key="stat.f">
-                    <div class="mt-[40px]">
-                      <p class="font-inter font-semibold text-white text-[32px] leading-[42px]" x-text="stat.f"></p>
-                      <p class="text-line text-[14px] leading-[24px] font-inter mt-[8px]" x-text="stat.s"></p>
+              <div class="mt-[24px]">
+                <ul class="mb-[32px]">
+                  <li class="py-[12px]"><a class=" text-black font-inter" href="#">About</a></li>
+                  <li class="py-[12px]"><a class=" text-black font-inter" href="#">Download</a></li>
+                  <li class="py-[12px]"><a class=" text-black font-inter" href="#">Contact</a></li>
+                </ul>
+                <!-- drop down mobile-->
+                <div class="flex flex-col justify-center items-center">
+                  <div x-data="{ open: false, selectLanguage: 'ENG' }" class="relative border border-line w-full px-[10px] py-[8px] rounded-[100px] flex gap-[4px] justify-between items-center cursor-pointer bg-biru">
+                    <div class="flex items-center gap-2" @click="open = !open">
+                      <button>
+                        <span class="text-white text-[14px] leading-[24px] font-semibold" x-text="selectLanguage"></span>
+                      </button>
+                      <img src="./src/assets/arrow.svg" class="transform duration-500" :class="{ 'rotate-180': open, 'rotate-0': !open }" alt="arrow">
                     </div>
-                  </template>
+                    <!-- Flag Image -->
+                    <img class="rounded-[100px]" :src="selectLanguage === 'ENG' ? './src/assets/eng-flags.svg' : './src/assets/idn-flag.svg'" alt="flag">
+                    <!-- Dropdown Menu-->
+                    <div x-show="open" @click.away="open = false" class="absolute top-full mt-2 w-full bg-biru shadow-lg rounded-lg py-2 z-10">
+                      <ul class="text-black">
+                        <li @click="selectLanguage = 'ENG'; open = false" class="hover:bg-gray-200 px-4 py-2 cursor-pointer">
+                          <a href="#">ENG</a>
+                        </li>
+                        <li @click="selectLanguage = 'IND'; open = false" class="hover:bg-gray-200 px-4 py-2 cursor-pointer">
+                          <a href="#">IND</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <button class="btn btn__primary w-full mt-[12px]">sign up</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </header>
-      <!-- features -->
+      </nav>
+      <!-- banner -->
+      <div class="container bg bg__hero bg-no-repeat bg-cover text-center items-center flex flex-col md:pt-[80px]">
+        <h1 class="font-semibold font-inter lg:text-[64px] lg:leading-[88px] md:text-[48px] md:leading-[64px] text-[32px] leading-[42px] text-white  md:my-[32px] lg:my-[60px] my-[24px]">Save your finances and transfer to any bank in the world</h1>
+        <div class="block md:flex md:justify-between w-full">
+          <div class=" flex flex-col md:justify-end md:items-start sm:justify-center sm:items-center md:mb-[60px] md:mr-[22px]">
+            <p class="font-inter lg:text-[16px] lg:leading-[26px] text-[14px] leading-[24px] md:w-[242px] text-line md:text-left sm:text-center">Making it fun and easy for you to transfer, top up and receive money from anywhere in the world, with more currencies easy to do</p>
+            <button class="btn btn__primary mt-[24px] mb-[40px]">Create Account now</button>
+            <!-- users -->
+            <div class="flex gap-[12px]">
+              <figure>
+                <img src="./src/assets/transtedUser.png" alt="user transted">
+              </figure>
+              <div>
+                <p class="text-[16px] leading-[26px] font-semibold text-white text-left">Transted User</p>
+                <div class="flex gap-[2.5px]">
+                  <img class="" src="./src/assets/star.png" alt="star">
+                  <p class="text-[12px] leading-[20px] font-inter text-line">(4.9) User</p>
+                </div>
+              </div>
+            </div>
+            <!-- statistik mobile-->
+            <div class=" md:hidden flex items-center gap-[26px] mt-[24px] mb-[40px]" x-data = "{
+            statistik : [
+            {
+              f : '1k+',
+              s : 'User Use'
+            },
+            {
+              f : '20k+',
+              s : 'Satisfied Customer'
+            },
+            {
+              f : '4.9+',
+              s : 'Rating'
+            }
+            ]}">
+              <template x-for="stat in statistik" :key="stat.f">
+                <div class="">
+                  <p class="font-inter font-semibold text-white text-[24px] leading-[32px]" x-text="stat.f"></p>
+                  <p class="text-line text-[14px] leading-[24px] font-inter" x-text="stat.s"></p>
+                </div>
+              </template>
+            </div>
+          </div>
+          <!-- banner phone -->
+          <figure class="flex justify-end">
+            <img class="w-[100%]" src="./src/assets/banner-phone.png" alt="phone-banner">
+          </figure>
+          <!-- statistik phone dekstop -->
+          <div class=" hidden md:flex md:flex-col md:justify-end md:mb-[60px] md:ml-[50px]" x-data = "{statistik : [
+            {
+              f : '1k+',
+              s : 'User Use'
+            },
+            {
+              f : '20k+',
+              s : 'Satisfied Customer'
+            },
+            {
+              f : '4.9+',
+              s : 'Rating'
+            }
+            ]}">
+              <template x-for="stat in statistik" :key="stat.f">
+                <div class="mt-[40px]">
+                  <p class="font-inter font-semibold text-white text-[32px] leading-[42px]" x-text="stat.f"></p>
+                  <p class="text-line text-[14px] leading-[24px] font-inter mt-[8px]" x-text="stat.s"></p>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- features -->
+    <main id="app">
       <section class="container">
         <div class=" md:grid md:grid-cols-2 flex  flex-col mt-[32px] md:mt-[40px] lg:mt-[60px] gap-[24px] md:gap-[40px] lg:gap-[132px] pb-[40px]">
           <div class="flex flex-col justify-center gap-[24px]">
@@ -218,46 +214,46 @@
         </div>
         <!-- feedback 1 -->
         <div 
-        class="grid md:grid-cols-3 grid-rows-1 md:gap-[40px] gap-[24px] mb-[52px] md:mb-[40px] lg:mb-[60px]"
-        x-data="{feedbacks: [
-          {
-            id: '1',
-            icon : './src/assets/icon-payment.svg',
-            title : 'Automatic Payment',
-            desc : 'Streamline your financial processes and reduce manual effort. Spend less time on data entry.',
-            img : './src/assets/image-payment.png'
-          },
-          {
-            id: '2',
-            icon : './src/assets/icon-security.svg',
-            title : 'Data Security',
-            desc : 'Protected 24/7, don’t worry about cyber security in our company.',
-            img : './src/assets/image-security.png'
-          },
-          {
-            id: '3',
-            icon : './src/assets/icon-user.svg',
-            title : 'User Friendly',
-            desc : 'We make our application easy to use and user-friendly, suitable for all groups.',
-            img : './src/assets/image-phoneUser.png'
-          }
-          ]
-        }">
-          <template x-for="feedback in feedbacks" :key="feedback.id">
-            <div class="feedback-item bg-backgroundFeedbback rounded-[16px] px-[24px] pt-[20px]">
-              <div class="feedback-item__icon">
-                <img :src="feedback.icon" :alt="feedback.title + ' icon'">
-              </div>
-              <div class="feedback-item__desc">
-                <h3 class="text-[24px] leading-[32px] font-semibold font-inter my-[16px]" x-text="feedback.title"></h3>
-                <p class="text-textGray text-[14px] leading-[24px] font-inter" x-text="feedback.desc"></p>
-              </div>
-              <figure class="feedback-item__img flex flex-col justify-end w-[100%] ">
-                <img :class="feedback.id === '2' ? '' : 'mt-[20px] flex justify-center items-center' " :src="feedback.img" :alt="feedback.title + ' image'">
-              </figure>
-            </div>
-          </template>
+          class="grid md:grid-cols-3 grid-rows-1 md:gap-[40px] gap-[24px] mb-[52px] md:mb-[40px] lg:mb-[60px] bg-rd-300"
+          x-data="{feedbacks: [
+              {
+                  id: '1',
+                  icon : './src/assets/icon-payment.svg',
+                  title : 'Automatic Payment',
+                  desc : 'Streamline your financial processes and reduce manual effort. Spend less time on data entry.',
+                  img : './src/assets/image-payment.png'
+              },
+              {
+                  id: '2',
+                  icon : './src/assets/icon-security.svg',
+                  title : 'Data Security',
+                  desc : 'Protected 24/7, don’t worry about cyber security in our company.',
+                  img : './src/assets/image-security.png'
+              },
+              {
+                  id: '3',
+                  icon : './src/assets/icon-user.svg',
+                  title : 'User Friendly',
+                  desc : 'We make our application easy to use and user-friendly, suitable for all groups.',
+                  img : './src/assets/image-phoneUser.png'
+              }
+          ]}">
+            <template x-for="feedback in feedbacks" :key="feedback.id">
+                <div class="feedback-item bg-backgroundFeedbback rounded-[16px] px-[24px] pt-[20px] flex flex-col">
+                    <div class="feedback-item__icon">
+                        <img :src="feedback.icon" :alt="feedback.title + ' icon'">
+                    </div>
+                    <div class="feedback-item__desc">
+                        <h3 class="text-[24px] leading-[32px] font-semibold font-inter my-[16px]" x-text="feedback.title"></h3>
+                        <p class="text-textGray text-[14px] leading-[24px] font-inter" x-text="feedback.desc"></p>
+                    </div>
+                    <figure class="feedback-item__img flex flex-col w-[100%] h-[100%]">
+                        <img :class="feedback.id === '3' ? 'mt-auto' : 'm-auto'" :src="feedback.img" :alt="feedback.title + ' image'">
+                    </figure>
+                </div>
+            </template>
         </div>
+
         <!-- feedback 2 -->
         <div 
         class="grid md:grid-cols-2 grid-rows-1 gap-[24px]"
@@ -446,43 +442,47 @@
       </section>
       <!-- review -->
       <section class="container">
-        <div class="grid grid-cols-1 md:grid md:grid-cols-2 lg:gap-[132px] lg:mt-[100px] md:mt-[40px] md:gap-[40px] gap-[24px] mt-[32px] mb-[40px]">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-[132px] lg:mt-[100px] md:mt-[40px] md:gap-[40px] gap-[24px] mt-[32px] mb-[40px]">
           <div class="text-center md:text-left">
             <h2 class="md:text-[48px] text-[24px] md:leading-[60px] leading-[32px] font-inter font-semibold">View some review from Minance User</h2>
-            <p class="text-[14px] leading-[24px] text-textGray font-inter mt-[24px] ">What many people say about this app and how do you feel when you use this app for your Money Management</p>
+            <p class="text-[14px] leading-[24px] text-textGray font-inter mt-[24px]">What many people say about this app and how do you feel when you use this app for your Money Management</p>
           </div>
           <div class="relative">
             <div 
-            class="overflow-scroll lg:h-[502px]"
-            x-data="{
-              reviews : [
-                {
-                  img : './src/assets/img-review.svg',
-                  name : 'Nugraha',
-                  postion : 'Manager',
-                  text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
-                },
-                {
-                  img : './src/assets/img-review.svg',
-                  name : 'jhon doe',
-                  postion : 'Manager',
-                  text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
-                },
-                {
-                  img : './src/assets/img-review.svg',
-                  name : 'jhoniee',
-                  postion : 'Manager',
-                  text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
-                },
-              ]
-              }">
+              class="overflow-scroll lg:h-[502px]" 
+              x-data="{
+                reviews : [
+                  {
+                    img : './src/assets/img-review.svg',
+                    name : 'Nugraha',
+                    postion : 'Manager',
+                    text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
+                  },
+                  {
+                    img : './src/assets/img-review.svg',
+                    name : 'Jhon Doe',
+                    postion : 'Manager',
+                    text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
+                  },
+                  {
+                    img : './src/assets/img-review.svg',
+                    name : 'Jhoniee',
+                    postion : 'Manager',
+                    text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
+                  }
+                ],
+                hasReachedEnd(el) {
+                  return el.scrollHeight - el.scrollTop === el.clientHeight;
+                }
+              }"
+              x-on:scroll="hasReachedEnd($event.target) ? $refs.blur.classList.add('hidden') : $refs.blur.classList.remove('hidden')">
               <div>
                 <template x-for="review in reviews" :key="review.name">
                   <div class="rounded-[16px] border border-gray-300 px-[16px] py-[24px] mt-[20px]">
                     <p class="text-[16px] leading-[26px] font-inter" x-text="review.text"></p>
-                    <div class="flex mt-[35px gap-[6px]">
+                    <div class="flex mt-[35px] gap-[6px]">
                       <img :src="review.img" alt="person">
-                      <div class="flex justify-between w-full" >
+                      <div class="flex justify-between w-full">
                         <div class="flex flex-col gap-[6px]">
                           <p class="text-[16px] leading-[26px] font-inter font-bold" x-text="review.name"></p>
                           <p class="text-[12px] leading-[20px] text-textGray font-inter" x-text="review.postion"></p>
@@ -496,20 +496,20 @@
                 </template>
               </div>
             </div>
-            <div class="absolute bottom-[-10px] left-0 right-0  w-full h-[80px] md:blur-md md:bg-white"></div>
+            <div x-ref="blur" class="absolute bottom-[-10px] left-0 right-0 w-full h-[80px] md:blur-md md:bg-white"></div>
           </div>
         </div>
       </section>
+      
       <!-- get the app -->
        <section class="container">
         <div class="grid md:grid-cols-2 grid-cols-1 bg-black mt-[40px] rounded-[24px] sm:px-[24px] sm:pt-[24px] md:mb-[40px] mb-[24px]">
-          <div class="lg:py-[80px] lg:pl-[60px] md:py-[40px] md:pl-[60px] max-w-[428px]">
-            <h2 class="text-[48px] leading-[48px] font-semibold font-inter text-white
-            ">Get the Minance mobile app</h2>
+          <div class="lg:py-[80px] lg:pl-[60px] md:py-[40px] md:pl-[60px] max-w-[428px] flex flex-col gap-[24px]">
+            <h2 class="text-[48px] leading-[48px] font-semibold font-inter bg-clip-text text-transparent bg-gradient-to-r from-[#9ABFFE] to-[#A9F9B1]">Get the Minance mobile app</h2>
             <p class="text-[14px] leading-[24px] text-line font-inter">The First Application that is widely use and trusted by many companies</p>
-            <button>
+            <button class="mr-auto flex gap-[10px]">
               <p class="text-[14px] leading-[24px] text-white font-medium font-inter">Download App</p>
-              <img src="" alt="">
+              <img class="-rotate-1" src="./src/assets/arrowRight.png" alt="arrow right">
             </button>
           </div>
           <div class="flex justify-end">
@@ -523,7 +523,7 @@
       <div class="container">
         <div class=" pt-[60px] grid md:grid-cols-2 grid-cols-1 justify-between">
           <div>
-            <img src="./src//assets/logo-smallFooter.svg" alt="logo-small">
+            <img src="./src/assets/logo-smallFooter.svg" alt="logo-small">
             <p class="my-[40px] text-[14px] font-inter leading-[24px] text-line">At Minance, we help you achieve your financial goals with confidence. With 2 years of experience, we offer personalized financial planning and innovative banking services. Join us for a journey to financial stability and growth.</p>
             <div 
               x-data="{

@@ -2,6 +2,8 @@
 export default {
   content: [
     "./index.html",
+    "./login.html",
+    "./register.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -40,6 +42,8 @@ export default {
         'grayFinance' : '#F7F7F7',
         'mobileText' : '#9ABFFE',
         'blueFooter' : '#024BCA',
+        'orLine' : "#D1D1D1",
+        'btnGoogle' : "#F5F5F5",
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
