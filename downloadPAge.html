@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-            <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="w-full py-[14px] bg-biru fixed z-50 top-0 left-0 right-0">
         <div class="flex justify-between items-center container mx-auto">
           <figure>
@@ -221,12 +221,69 @@
         </div>
     </section>
     <!-- banner footer -->
-     <section>
-        <div id="bannerFooter"></div>
-     </section>
+        <section class="container">
+            <div class="grid md:grid-cols-2 grid-cols-1 bg-black mt-[40px] rounded-[24px] sm:px-[24px] sm:pt-[24px] md:mb-[40px] mb-[24px]">
+                <div class="lg:py-[80px] lg:pl-[60px] md:py-[40px] md:pl-[60px] max-w-[428px] flex flex-col gap-[24px]">
+                <h2 class="text-[48px] leading-[48px] font-semibold font-inter bg-clip-text text-transparent bg-gradient-to-r from-[#9ABFFE] to-[#A9F9B1]">Get the Minance mobile app</h2>
+                <p class="text-[14px] leading-[24px] text-line font-inter">The First Application that is widely use and trusted by many companies</p>
+                <button class="mr-auto flex gap-[10px]">
+                    <p class="text-[14px] leading-[24px] text-white font-medium font-inter">Download App</p>
+                    <img class="-rotate-1" src="/arrowRight.png" alt="arrow right">
+                </button>
+                </div>
+                <div class="flex justify-end">
+                <img class="" src="/content-app.png" alt="content">
+                </div>
+            </div>
+        </section>
     </main>
     <!-- footer -->
-    <footer id="footer"></footer>
+    <footer class="bg-blueFooter w-full">
+        <div class="container">
+          <div class=" pt-[60px] grid md:grid-cols-2 grid-cols-1 justify-between">
+            <div>
+              <img src="/logo-smallFooter.svg" alt="logo-small">
+              <p class="my-[40px] text-[14px] font-inter leading-[24px] text-line">At Minance, we help you achieve your financial goals with confidence. With 2 years of experience, we offer personalized financial planning and innovative banking services. Join us for a journey to financial stability and growth.</p>
+              <div 
+                x-data="{
+                sosmeds : [
+                  { src: '/instagram.svg', name: 'Instagram' },
+                  { src: '/wa.svg', name: 'WhatsApp' },
+                  { src: '/youtube.svg', name: 'YouTube' },
+                  { src: '/linkedin.svg', name: 'LinkedIn' },
+                  { src: '/twiter.svg', name: 'Twitter' }
+                  ]
+                }" 
+                class="sosmed flex space-x-4">
+                <template x-for="sosmed in sosmeds" :key="sosmed.src">
+                  <figure>
+                    <img :src="sosmed.src" :alt="`${sosmed.name} logo`" class="h-8 w-8">
+                  </figure>
+                </template>
+              </div>
+            </div>
+            <div class="md:flex block text-left justify-end lg:gap-[150px] md:gap-[50px] mt-[24px] mb-[60px] md:mb-0 md:mt-0">
+              <div class="">
+                <p class="text-[14px] leading-[24px] font-bold font-inter text-white">Company</p>
+                <ul class="mt-[24px] flex flex-col gap-[16px] text-line text-[14px] leading-[24px] font-inter">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+              <div class="mt-[16px] md:mt-0">
+                <p class="text-[14px] leading-[24px] font-bold font-inter text-white">Contact Us</p>
+                <p class="mt-[24px]"><a class="text-line text-[14px] leading-[24px] font-inter" href="#">+22 80 1234 4321</a></p>
+                <p class="text-[14px] leading-[24px] font-bold font-inter text-white mt-[16px]">Support</p>
+                <p class="mt-[24px]"><a class="text-line text-[14px] leading-[24px] font-inter" href="#">+22 80 1234 2233</a></p>
+              </div>
+            </div>
+          </div>
+          <figure class="lg:mt-[60px] md:mt-[42.48px] md:block hidden">
+            <img src="/logo-bigFooter.png" alt="logo-big">
+          </figure>
+        </div>
+    </footer>
     <script type="module" src="./main.js"></script>
 </body>
 </html>
