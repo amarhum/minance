@@ -2,7 +2,7 @@
 export default {
   content: [
     "{./index.html,./login.html,./register.html,./aboutPage.html,./contactPage.html,./downloadPage.html}",
-    "./src/components/**/*.{html,js}",
+    "./components/**/*.{html,js}",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
