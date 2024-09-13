@@ -1,34 +1,87 @@
-<div class="all_style">
-    <figure>
-        <img src="./src/assets/logo-main.svg" alt="logo coba">
-    </figure>
-    <div class="nav_style bg-red-200">
-        <ul class="ul_style">
-            <li><a class="bg-red-200" href="#">About</a></li>
-            <li><a href="#">Download</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="line"></div>
-        <div class="btn_style">
-            <div x-data="{open: false , selectLanguage : 'eng'}" class="language_btn">
+    <!-- Navbar -->
+    <nav class="w-full py-[14px] bg-biru fixed z-50 top-0 left-0 right-0">
+        <div class="flex justify-between items-center container mx-auto">
+          <figure>
+            <a href="./index.html">
+              <img src="/logo-main.svg" alt="logo coba">
+            </a>
+          </figure>
+          <div class="md:flex justify-center items-center hidden">
+            <ul class="flex justify-center items-center lg:gap-[48px] md:gap-[24px] text-[14px] leading-[24px] font-inter">
+              <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="/aboutPage.html">About</a></li>
+              <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="/downloadPage.html">Download</a></li>
+              <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="/contactPage.html">Contact</a></li>
+            </ul>
+            <div class="border h-[32px] border-line w-0 md:mx-[14px] lg:mx-[32px]"></div>
+            <!-- drop down dekstop-->
+            <div class="flex justify-center items-center md:gap-[16px] lg:gap-[32px] bg-biru">
+              <div x-data="{open: false, selectLanguage: 'ENG'}" class="relative border border-white px-[10px] py-[8px] rounded-[100px] flex gap-[4px] justify-center items-center duration-500">
                 <button @click="open = !open">
-                    <span x-text="selectLanguage"></span>
+                  <span class="text-white text-[14px] leading-[24px] font-semibold" x-text="selectLanguage"></span>
                 </button>
-                <svg class="panah_style" :class="{'putar_bawah': open, 'putar_atas': !open}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-                <div x-show="open" @click.away="open = false" class="menu_drop">
-                    <ul class="py-2">
-                        <li>
-                            <a href="#" @click="selectLanguage = 'eng'; open = false">eng</a>
-                        </li>
-                        <li>
-                            <a href="#" @click="selectLanguage = 'ind' ; open = false">ind</a>
-                        </li>
-                    </ul>
+                <img src="/arrow.svg" class="transform duration-500" :class="{'rotate-180': open, 'rotate-0': !open}" alt="arrow">
+                <img class="rounded-[100px] duration-500" :src="selectLanguage === 'ENG' ? '/eng-flags.svg' : '/idn-flag.svg'" alt="flag">
+                <div x-show="open" class="absolute top-[45px] right-[10px] border border-white shadow-lg rounded-lg py-2 z-10 bg-biru">
+                  <ul class="py-2">
+                    <li class="px-7 py-2 hover:cursor-pointer" @click="selectLanguage = 'ENG'; open = false">
+                      <a class="hover:border-b border-white">ENG</a>
+                    </li>
+                    <li class="px-7 py-2 hover:cursor-pointer" @click="selectLanguage = 'IND'; open = false">
+                      <a class="hover:border-b border-white">IND</a>
+                    </li>
+                  </ul>
                 </div>
+              </div>
+              <button class="btn btn__primary"><a class="text-black" href="./login.html">sign up</a></button>
             </div>
-            <button class="btn btn__primary">sign up</button>
+          </div>
+          <!-- side bar -->
+          <div x-data="{modal: false}" class="md:hidden">
+            <figure @click="modal = !modal">
+              <img src="/menu-bar.svg" alt="bar">
+            </figure>
+            <!-- modal side bar -->
+            <div class="absolute h-screen w-full left-0 top-0 px-[24px] py-[12px] bg-white duration-500 transition-transform" x-show="modal" @click.away="modal = false"> 
+              <figure class="flex justify-between">
+                <a href="./index.html">
+                  <img src="/logo-mobile.svg" alt="logo-mobile">
+                </a>
+                <img @click="modal = !modal" src="/close.svg" alt="close">
+              </figure>
+              <div class="mt-[24px]">
+                <ul class="mb-[32px]">
+                  <li class="py-[12px]"><a class="text-black font-inter" href="./aboutPage.html">About</a></li>
+                  <li class="py-[12px]"><a class="text-black font-inter" href="./downloadPage.html">Download</a></li>
+                  <li class="py-[12px]"><a class="text-black font-inter" href="./contactPage.html">Contact</a></li>
+                </ul>
+                <!-- drop down mobile-->
+                <div class="flex flex-col justify-center items-center">
+                  <div x-data="{ open: false, selectLanguage: 'ENG' }" class="relative border border-line w-full px-[10px] py-[8px] rounded-[100px] flex gap-[4px] justify-between items-center cursor-pointer bg-biru">
+                    <div class="flex items-center gap-2" @click="open = !open">
+                      <button>
+                        <span class="text-white text-[14px] leading-[24px] font-semibold" x-text="selectLanguage"></span>
+                      </button>
+                      <img src="/arrow.svg" class="transform duration-500" :class="{ 'rotate-180': open, 'rotate-0': !open }" alt="arrow">
+                    </div>
+                    <!-- Flag Image -->
+                    <img class="rounded-[100px]" :src="selectLanguage === 'ENG' ? '/eng-flags.svg' : '/idn-flag.svg'" alt="flag">
+                    <!-- Dropdown Menu-->
+                    <div x-show="open" @click.away="open = false" class="absolute top-full mt-2 w-full bg-biru shadow-lg rounded-lg py-2 z-10">
+                      <ul class="text-black">
+                        <li @click="selectLanguage = 'ENG'; open = false" class="hover:bg-gray-200 px-4 py-2 cursor-pointer">
+                          <a href="#">ENG</a>
+                        </li>
+                        <li @click="selectLanguage = 'IND'; open = false" class="hover:bg-gray-200 px-4 py-2 cursor-pointer">
+                          <a href="#">IND</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <button class="btn btn__primary w-full mt-[12px]"><a class="text-black" href="./login.html">sign up</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+      </nav>
+    

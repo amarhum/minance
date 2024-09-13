@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./login.html",
-    "./register.html",
+    "{./index.html,./login.html,./register.html,./aboutPage.html,./contactPage.html,./downloadPage.html}",
+    "./src/components/**/*.{html,js}",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -26,10 +25,12 @@ export default {
     },
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('../src/assets/bg-hero.png')",
-        'login' : "url('../src/assets/bg-login.png')",
-        'feedback1' : "url('../src/assets/bg-feed.png')",
-        'feedback2' : "url('../src/assets/bg-feedback2.png')",
+        'hero-pattern': "url('/bg-hero.png')",
+        'hero-pattern-download': "url('/background_contact.png')",
+        'hero-pattern-download-mobile': "url('/backgroundContactMobile.png')",
+        'login' : "url('/bg-login.png')",
+        'feedback1' : "url('/bg-feed.png')",
+        'feedback2' : "url('/bg-feedback2.png')",
       },
       colors: {
         'biru': '#0761FD',
@@ -42,8 +43,7 @@ export default {
         'grayFinance' : '#F7F7F7',
         'mobileText' : '#9ABFFE',
         'blueFooter' : '#024BCA',
-        'orLine' : "#D1D1D1",
-        'btnGoogle' : "#F5F5F5",
+        'team' : '#F5F9FF',
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],

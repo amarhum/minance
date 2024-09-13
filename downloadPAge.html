@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar"></nav>
+    </header>
+    <main>
+    <!-- banner -->
+    <section 
+    x-data="{ screen: window.innerWidth >= 768 ? 'md' : 'sm' }"
+    @resize.window="screen = window.innerWidth >= 768 ? 'md' : 'sm'"
+    :class="screen === 'md' ? 'bg-hero-pattern-download' : 'bg-hero-pattern-download-mobile'"
+    class="w-full bg-center bg-cover pt-[120px] pb-[198px]">
+        <div class="container mx-auto flex justify-center items-center">
+            <div class="flex flex-col justify-center items-center gap-[24px] lg:max-w-[792px] text-center">
+                <!-- Title Section -->
+                <h1 class="md:text-[48px] md:leading-[64px] text-[32px] leading-[42px] font-inter text-white font-semibold">
+                    Download Minance App and Achieve Your Goals!
+                </h1>
+                <!-- Description Section -->
+                <p class="text-[14px] leading-[24px] text-white md:text-[16px] md:leading-[28px]">
+                    Enjoy the convenience of managing your finances with Minance. Download the app now and start achieving your financial goals more easily and efficiently.
+                </p>
+                <!-- Download Button Section -->
+                <button class="btn btn__primary flex items-center gap-[8px] px-[16px] py-[12px]">
+                    <p>Download App</p>
+                    <img class="object-contain w-[24px] h-[24px]" src="/arrowBack.png" alt="arrow">
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Download Section -->
+    <section class="container mx-auto">
+        <div 
+        class="grid md:grid-cols-2 grid-cols-1 gap-[40px] mt-[60px]"
+        x-data="{
+            downloads : [
+            {
+                title : 'Get App for iOS',
+                decs : 'Download Minance on the App Store and enjoy the convenience of managing your finances on your iOS device',
+                icon : '/apple_logo.svg',
+                textButton : 'App Store',
+                img : '/phone_download.png'
+            },
+            {
+                title : 'Get App for Android',
+                decs : 'Download Minance on Google Play and start managing your finances better on your Android device',
+                icon : '/playStore_logo.svg',
+                textButton : 'Google Play',
+                img : '/phone_download.png'
+            },
+            ]
+        }"
+        >
+            <template x-for="download in downloads" :key="download.title">
+                <div class="flex flex-col justify-center items-center text-center bg-backgroundFeedbback px-[47px] pt-[32px] gap-[16px] rounded-[24px]">
+                    <p class="text-[24px] leading-[32px] font-semibold font-inter text-black" x-text="download.title"></p>
+                    <p class="text-[16px] leading-[26px] font-inter text-textGray" x-text="download.decs"></p>
+                    <button class="flex bg-black rounded-[8px] px-[24px] py-[8px] gap-[10px]">
+                        <img :src="download.icon" alt="apple_logo">
+                        <div class="text-left">
+                            <p class="text-[8px] leading-[9.68px] font-inter text-white">Download on the</p>
+                            <p class="font-semibold text-[14px] leading-[16.94px] text-white font-inter" x-text="download.textButton"></p>
+                        </div>
+                    </button>
+                    <div>
+                        <img :src="download.img" alt="phone">
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+    <!-- review -->
+    <section class="container">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-[132px] lg:mt-[100px] md:mt-[40px] md:gap-[40px] gap-[24px] mt-[32px] mb-[40px]">
+          <div class="text-center md:text-left">
+            <h2 class="md:text-[48px] text-[24px] md:leading-[60px] leading-[32px] font-inter font-semibold">View some review from Minance User</h2>
+            <p class="text-[14px] leading-[24px] text-textGray font-inter mt-[24px]">What many people say about this app and how do you feel when you use this app for your Money Management</p>
+          </div>
+          <div class="relative">
+            <div 
+              class="overflow-scroll lg:h-[502px]" 
+              x-data="{
+                reviews : [
+                  {
+                    img : '/img-review.svg',
+                    name : 'Nugraha',
+                    postion : 'Manager',
+                    text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
+                  },
+                  {
+                    img : '/img-review.svg',
+                    name : 'Jhon Doe',
+                    postion : 'Manager',
+                    text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
+                  },
+                  {
+                    img : '/img-review.svg',
+                    name : 'Jhoniee',
+                    postion : 'Manager',
+                    text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
+                  }
+                ],
+                hasReachedEnd(el) {
+                  return el.scrollHeight - el.scrollTop === el.clientHeight;
+                }
+              }"
+              x-on:scroll="hasReachedEnd($event.target) ? $refs.blur.classList.add('hidden') : $refs.blur.classList.remove('hidden')">
+              <div>
+                <template x-for="review in reviews" :key="review.name">
+                  <div class="rounded-[16px] border border-gray-300 px-[16px] py-[24px] mt-[20px]">
+                    <p class="text-[16px] leading-[26px] font-inter" x-text="review.text"></p>
+                    <div class="flex mt-[35px] gap-[6px]">
+                      <img :src="review.img" alt="person">
+                      <div class="flex justify-between w-full">
+                        <div class="flex flex-col gap-[6px]">
+                          <p class="text-[16px] leading-[26px] font-inter font-bold" x-text="review.name"></p>
+                          <p class="text-[12px] leading-[20px] text-textGray font-inter" x-text="review.postion"></p>
+                        </div>
+                        <figure class="px-[13.5px] py-[13.5px] flex justify-center items-center bg-backgroundFeedbback rounded-[66.67px]">
+                          <img src="/play-icon.svg" alt="play">
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+            <div x-ref="blur" class="absolute bottom-[-10px] left-0 right-0 w-full h-[80px] md:blur-md md:bg-white"></div>
+          </div>
+        </div>
+    </section>
+    <!-- banner footer -->
+     <section>
+        <div id="bannerFooter"></div>
+     </section>
+    </main>
+    <!-- footer -->
+    <footer id="footer"></footer>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

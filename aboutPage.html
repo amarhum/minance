@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script/custom.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="w-full bg-biru mt-0">
+    <!-- Navbar -->
+        <nav id="navbar" class=""></nav>
+    </header>
+    <main>
+        <!-- team container -->
+        <section class="w-full bg-biru pt-[90px]">
+            <div class="container mx-auto ">
+                <div class="grid md:grid-cols-2 grid-cols-1 text-center md:text-left">
+                    <h1 class="lg:text-[64px] lg:leading-[88px] md:text-[48px] md:leading-[64px] font-semibold font-inter text-white">Learn more about Minance and Team</h1>
+                    <div class="flex flex-col mt-auto">
+                        <p class="lg:text-[16px] lg:leading-[26px] md:text-[14px] md:leading-[24px] font-inter text-line">Our team consists of experienced professionals in technology and finance who are dedicated to providing the best solutions for users.</p>
+                    </div>
+                </div>
+                <div 
+                class="flex gap-[24px] overflow-x-scroll pb-[50px] mt-[40px]"
+                x-data="{
+                    teams: [
+                    {
+                        img: '/personTeam1.png',
+                        name: 'Deni manusia ikan',
+                        role: '3D Designer',
+                    },
+                    {
+                        img: '/personTeam2.png',
+                        name: 'Nugraha',
+                        role: 'CEO of Minance App',
+                    },
+                    {
+                        img: '/personTeam3.png',
+                        name: 'Purwa',
+                        role: 'UI/UX Designer',
+                    },
+                    {
+                        img: '/personTeam4.png',
+                        name: 'Yayan Kurnia',
+                        role: 'Marketing specialist',
+                    },
+                    ]
+                }">
+                    <template x-for="team in teams" :key="team.name">
+                        <figure class="flex flex-col">
+                        <!-- Container for the image with fixed height and width -->
+                        <div class="bg-team rounded-[14px] h-[492px] flex">
+                            <img class="object-cover w-full h-full" :src="team.img" alt="person team">
+                        </div>
+                        <figcaption class="mt-4">
+                            <p class="font-semibold text-[24px] leading-[32px] text-white" x-text="team.name"></p>
+                            <p class="text-line text-[16px] leading-[26px] font-inter" x-text="team.role"></p>
+                        </figcaption>
+                        </figure>
+                    </template>
+                </div>
+            </div>
+        </section>
+        <!-- vidio container -->
+        <section class="container mx-auto">
+            <div class="flex flex-col items-center text-center justify-center mt-[60px] mb-[40px]">
+                <h2 class="text-[48px] leading-[60px] font-semibold font-inter">Management of out Money</h2>
+                <p class="text-textGray text-[14px] leading-[24px] font-inter">Meet Team and discussion about Minance Management</p>
+            </div>
+            <div>
+                <div x-data="{ isPlaying: false }">
+                    <video x-ref="video" class="w-full rounded-[16px]" src="/vidio_alam.mp4" controls></video>
+                    <button @click="isPlaying ? $refs.video.pause() : $refs.video.play(); isPlaying = !isPlaying">
+                        <span x-text="isPlaying ? 'Pause' : 'Play'"></span>
+                    </button>
+                </div>         
+            </div>
+            <div class="grid grid-cols-3 items-center gap-[26px] mt-[40px] mb-[40px]" x-data = "{
+                statistik : [
+                {
+                  f : '1k+',
+                  s : 'User Use'
+                },
+                {
+                  f : '20k+',
+                  s : 'Satisfied Customer'
+                },
+                {
+                  f : '4.9+',
+                  s : 'Rating'
+                }
+                ]}">
+                  <template x-for="stat in statistik" :key="stat.f">
+                    <div class="text-center flex flex-col ">
+                      <p class="font-inter justify-start items-start font-semibold text-black text-[32px] leading-[42px] md:text-[40px] md:leading-[54px]" x-text="stat.f"></p>
+                      <p class="text-line text-[14px] leading-[24px] font-inter" x-text="stat.s"></p>
+                    </div>
+                  </template>
+                </div>
+        </section>
+        <section id="bannerFooter"></section>
+    </main>
+    <footer id="footer">
+        
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -10,99 +10,23 @@
   <body>
     <header class="w-full bg-biru">
       <!-- Navbar -->
-      <nav class="w-full py-[14px] bg-biru fixed z-10">
-        <div class="flex justify-between items-center container mx-auto ">
-          <figure>
-              <img src="./src/assets/logo-main.svg" alt="logo coba">
-          </figure>
-          <div class="md:flex justify-center items-center hidden">
-              <ul class="flex justify-center items-center lg:gap-[48px] md:gap-[24px] text-[14px] leading-[24px] font-inter">
-                  <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">About</a></li>
-                  <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">Download</a></li>
-                  <li><a class="border-b-2 border-transparent hover:border-line duration-500" href="#">Contact</a></li>
-              </ul>
-              <div class="border h-[32px] border-line w-0 md:mx-[14px] lg:mx-[32px]"></div>
-              <!-- drop down dekstop-->
-              <div class="flex justify-center items-center md:gap-[16px] lg:gap-[32px] bg-biru">
-                  <div x-data="{open: false , selectLanguage : 'ENG'}" class="relative border border-white px-[10px] py-[8px] rounded-[100px] flex gap-[4px] justify-center items-center">
-                      <button @click="open = !open">
-                          <span class="text-white text-[14px] leading-[24px] font-semibold" x-text="selectLanguage"></span>
-                      </button>
-                      <img src="./src/assets/arrow.svg" class="transform duration-500" :class="{'rotate-180': open, ' rotate-0': !open}" alt="arrow">
-                      <img class="rounded-[100px]" :src="selectLanguage === 'ENG' ? './src/assets/eng-flags.svg' : './src/assets/idn-flag.svg'" alt="flag">
-                      <div x-show="open" class="absolute top-[45px] right-[10px] border border-white shadow-lg rounded-lg py-2 z-10 bg-biru">
-                          <ul class="py-2 ">
-                              <li class="px-7 py-2 hover:cursor-pointer" @click="selectLanguage = 'ENG'; open = false"><a  class="hover:border-b border-white">ENG</a></li>
-                              <li class="px-7 py-2 hover:cursor-pointer" @click="selectLanguage = 'IND' ; open = false"><a class="hover:border-b border-white">IND</a></li>
-                          </ul>
-                      </div>
-                  </div>
-                  <button class="btn btn__primary"><a class="text-black" href="./login.html">sign up</a></button>
-              </div>
-          </div>
-          <!-- side bar  -->
-          <div x-data="{modal: false}" class="md:hidden">
-            <figure @click="modal = !modal">
-              <img src="./src/assets/menu-bar.svg" alt="bar">
-            </figure>
-            <!-- modal side bar -->
-            <div class="absolute h-screen w-full left-0 top-0 px-[24px] py-[12px] bg-white duration-500 transition-transform" x-show="modal" @click.away="modal = false" > 
-              <figure class="flex justify-between">
-                <img src="./src/assets/logo-mobile.svg" alt="logo-mobile">
-                <img @click="modal = !modal" src="./src/assets/close.svg" alt="close">
-              </figure>
-              <div class="mt-[24px]">
-                <ul class="mb-[32px]">
-                  <li class="py-[12px]"><a class=" text-black font-inter" href="#">About</a></li>
-                  <li class="py-[12px]"><a class=" text-black font-inter" href="#">Download</a></li>
-                  <li class="py-[12px]"><a class=" text-black font-inter" href="#">Contact</a></li>
-                </ul>
-                <!-- drop down mobile-->
-                <div class="flex flex-col justify-center items-center">
-                  <div x-data="{ open: false, selectLanguage: 'ENG' }" class="relative border border-line w-full px-[10px] py-[8px] rounded-[100px] flex gap-[4px] justify-between items-center cursor-pointer bg-biru">
-                    <div class="flex items-center gap-2" @click="open = !open">
-                      <button>
-                        <span class="text-white text-[14px] leading-[24px] font-semibold" x-text="selectLanguage"></span>
-                      </button>
-                      <img src="./src/assets/arrow.svg" class="transform duration-500" :class="{ 'rotate-180': open, 'rotate-0': !open }" alt="arrow">
-                    </div>
-                    <!-- Flag Image -->
-                    <img class="rounded-[100px]" :src="selectLanguage === 'ENG' ? './src/assets/eng-flags.svg' : './src/assets/idn-flag.svg'" alt="flag">
-                    <!-- Dropdown Menu-->
-                    <div x-show="open" @click.away="open = false" class="absolute top-full mt-2 w-full bg-biru shadow-lg rounded-lg py-2 z-10">
-                      <ul class="text-black">
-                        <li @click="selectLanguage = 'ENG'; open = false" class="hover:bg-gray-200 px-4 py-2 cursor-pointer">
-                          <a href="#">ENG</a>
-                        </li>
-                        <li @click="selectLanguage = 'IND'; open = false" class="hover:bg-gray-200 px-4 py-2 cursor-pointer">
-                          <a href="#">IND</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <button class="btn btn__primary w-full mt-[12px]">sign up</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <nav id="navbar"></nav>
       <!-- banner -->
       <div class="container bg bg__hero bg-no-repeat bg-cover text-center items-center flex flex-col md:pt-[80px]">
         <h1 class="font-semibold font-inter lg:text-[64px] lg:leading-[88px] md:text-[48px] md:leading-[64px] text-[32px] leading-[42px] text-white  md:my-[32px] lg:my-[60px] my-[24px]">Save your finances and transfer to any bank in the world</h1>
         <div class="block md:flex md:justify-between w-full">
           <div class=" flex flex-col md:justify-end md:items-start sm:justify-center sm:items-center md:mb-[60px] md:mr-[22px]">
             <p class="font-inter lg:text-[16px] lg:leading-[26px] text-[14px] leading-[24px] md:w-[242px] text-line md:text-left sm:text-center">Making it fun and easy for you to transfer, top up and receive money from anywhere in the world, with more currencies easy to do</p>
-            <button class="btn btn__primary mt-[24px] mb-[40px]">Create Account now</button>
+            <button class="btn btn__primary mt-[24px] mb-[40px]"><a class="text-black" href="./register.html">Create Account now</a></button>
             <!-- users -->
             <div class="flex gap-[12px]">
               <figure>
-                <img src="./src/assets/transtedUser.png" alt="user transted">
+                <img src="/transtedUser.png" alt="user transted">
               </figure>
               <div>
                 <p class="text-[16px] leading-[26px] font-semibold text-white text-left">Transted User</p>
                 <div class="flex gap-[2.5px]">
-                  <img class="" src="./src/assets/star.png" alt="star">
+                  <img class="" src="/star.png" alt="star">
                   <p class="text-[12px] leading-[20px] font-inter text-line">(4.9) User</p>
                 </div>
               </div>
@@ -133,7 +57,7 @@
           </div>
           <!-- banner phone -->
           <figure class="flex justify-end">
-            <img class="w-[100%]" src="./src/assets/banner-phone.png" alt="phone-banner">
+            <img class="w-[100%]" src="/banner-phone.png" alt="phone-banner">
           </figure>
           <!-- statistik phone dekstop -->
           <div class=" hidden md:flex md:flex-col md:justify-end md:mb-[60px] md:ml-[50px]" x-data = "{statistik : [
@@ -173,24 +97,24 @@
             </div>
           </div>
           <figure class="lg:py-[72px] lg:pl-[71px] lg:pr-[10px] md:py-[63.44px] md:pl-[62.55px] md:pr-[8.81px] py-[43.76px] pl-[43.15px] pr-[6.08px] bg-bg rounded-[24px]">
-            <img class="" src="./src/assets/statistik.png" alt="image statistik">
+            <img class="" src="/statistik.png" alt="image statistik">
           </figure>
         </div>
         <div class="border-[1.5px] border-line w-full mb-[32px]"></div>
         <div class="grid md:grid-cols-3 grid-rows-1 md:gap-[40px] gap-[24px] mb-[52px] md:mb-[40px] lg:mb-[60px]"
           x-data="{ features: [
           {
-            img: './src/assets/icon-recive.svg',
+            img: '/icon-recive.svg',
             title: 'Receive',
             desc: 'Minance accepts all currencies from all over the world, making you happy with its features.'
           },
           {
-            img: './src/assets/icon-transfer.svg',
+            img: '/icon-transfer.svg',
             title: 'Transfer',
             desc: 'Minance offers fast transfers directly to your destinations worldwide in the desired currency.'
           },
           {
-            img: './src/assets/icon-topUp.svg',
+            img: '/icon-topUp.svg',
             title: 'Top Up',
             desc: 'Minance can top up from several banks that we provide quickly, monitored by our security.'
           }
@@ -218,24 +142,24 @@
           x-data="{feedbacks: [
               {
                   id: '1',
-                  icon : './src/assets/icon-payment.svg',
+                  icon : '/icon-payment.svg',
                   title : 'Automatic Payment',
                   desc : 'Streamline your financial processes and reduce manual effort. Spend less time on data entry.',
-                  img : './src/assets/image-payment.png'
+                  img : '/image-payment.png'
               },
               {
                   id: '2',
-                  icon : './src/assets/icon-security.svg',
+                  icon : '/icon-security.svg',
                   title : 'Data Security',
                   desc : 'Protected 24/7, don’t worry about cyber security in our company.',
-                  img : './src/assets/image-security.png'
+                  img : '/image-security.png'
               },
               {
                   id: '3',
-                  icon : './src/assets/icon-user.svg',
+                  icon : '/icon-user.svg',
                   title : 'User Friendly',
                   desc : 'We make our application easy to use and user-friendly, suitable for all groups.',
-                  img : './src/assets/image-phoneUser.png'
+                  img : '/image-phoneUser.png'
               }
           ]}">
             <template x-for="feedback in feedbacks" :key="feedback.id">
@@ -261,23 +185,23 @@
           feedbacks2 : [
             {
               id : '1',
-              icon : './src/assets/icon-lightning.svg',
+              icon : '/icon-lightning.svg',
               title : 'Fast Money Transfer Delivery',
               desc : 'Minance has a fast feature in sending money which makes it special'
             },
             {
               id : '2',
-              icon : './src/assets/icon-star.svg',
+              icon : '/icon-star.svg',
               title : 'International Money Payment',
               desc : 'Minance has more currencies you can use',
               balances: [
                 {
-                  img : './src/assets/idn-flag.svg',
+                  img : '/idn-flag.svg',
                   title : 'My Current Balance',
                   price : 'Rp. 2.900.000'
                 },
                 {
-                  img : './src/assets/eng-flags.svg',
+                  img : '/eng-flags.svg',
                   title : 'My Current Balance',
                   price : '$150.000'
                 }
@@ -340,14 +264,14 @@
         class="lg:grid lg:grid-cols-4 lg:gap-[20px] hidden"
         x-data="{
           financeList :[
-            './src/assets/bankin-logo.svg',
-            './src/assets/google-logo.svg',
-            './src/assets/slack-logo.svg',
-            './src/assets/adobe-logo.svg',
-            './src/assets/microsoft-logo.svg',
-            './src/assets/spotify-logo.svg',
-            './src/assets/gusto-logo.svg',
-            './src/assets/stripe-logo.svg',
+            '/bankin-logo.svg',
+            '/google-logo.svg',
+            '/slack-logo.svg',
+            '/adobe-logo.svg',
+            '/microsoft-logo.svg',
+            '/spotify-logo.svg',
+            '/gusto-logo.svg',
+            '/stripe-logo.svg',
           ]
         }">
           <template x-for="finance in financeList" :key="finance">
@@ -360,85 +284,79 @@
         </div>
         <!-- Carousel -->
         <div 
-        x-data="{
-          logos: [
-            './src/assets/bankin-logo.svg',
-            './src/assets/google-logo.svg',
-            './src/assets/slack-logo.svg',
-            './src/assets/adobe-logo.svg',
-            './src/assets/microsoft-logo.svg',
-            './src/assets/spotify-logo.svg',
-            './src/assets/gusto-logo.svg',
-            './src/assets/stripe-logo.svg'
-          ],
-          isPaused: false,
-          pauseCarousel() {
-            this.isPaused = true;
-          },
-          startCarousel() {
-            this.isPaused = false;
-          },
-          // Start autoplay on init
-          init() {
-            this.startCarousel();
-            setInterval(() => {
-              if (!this.isPaused) {
-                this.nextSlide();
+          x-data="{
+              logos: [
+                  '/bankin-logo.svg',
+                  '/google-logo.svg',
+                  '/slack-logo.svg',
+                  '/adobe-logo.svg',
+                  '/microsoft-logo.svg',
+                  '/spotify-logo.svg',
+                  '/gusto-logo.svg',
+                  '/stripe-logo.svg'
+              ],
+              isPaused: false,
+              pauseCarousel() {
+                  this.isPaused = true;
+              },
+              startCarousel() {
+                  this.isPaused = false;
+              },
+              init() {
+                  this.startCarousel();
               }
-            }, 3000); // Adjust as needed
-          },
-          nextSlide() {
-            // Move carousel by updating `transform`
-            const container = document.querySelector('.carousel-container');
-            const currentTransform = getComputedStyle(container).transform;
-            const matrix = new WebKitCSSMatrix(currentTransform);
-            container.style.transform = `translateX(${matrix.m41 - 100}px)`;
-          }
-        }"
-        class="relative w-full overflow-hidden lg:hidden"
-        x-init="init()"
-      >
-        <!-- Carousel wrapper -->
-        <div class="carousel-container flex space-x-6 gap-[20px]  " :class="{'paused': isPaused}" @mouseover="pauseCarousel" @mouseleave="startCarousel">
-          <template x-for="(logo, index) in logos" :key="index">
-            <div class="flex justify-center bg-grayFinance rounded-[16px] px-[26.43px] py-[25.96px] md:py-[43.26px] md:px-[26.74px] flex-shrink-0">
-              <img :src="logo" class="object-contain" alt="Logo">
-            </div>
-          </template>
-          <!-- Duplicate logos for infinite loop -->
-          <template x-for="(logo, index) in logos" :key="'dup' + index">
-            <div class="flex justify-center bg-grayFinance rounded-[16px] px-[26.43px] py-[25.96px] md:py-[43.26px] md:px-[26.74px] flex-shrink-0">
-              <img :src="logo" class="object-contain" alt="Logo">
-            </div>
-          </template>
+          }"
+          class="relative w-full overflow-hidden lg:hidden"
+          x-init="init()">
+          <!-- Carousel wrapper -->
+          <div class="carousel-container flex space-x-6 gap-[20px]" :class="{'paused': isPaused}" @mouseover="pauseCarousel" @mouseleave="startCarousel">
+              <template x-for="(logo, index) in logos.concat(logos)" :key="index">
+                  <div class="flex justify-center bg-grayFinance rounded-[16px] px-[26.43px] py-[25.96px] md:py-[43.26px] md:px-[26.74px] flex-shrink-0">
+                      <img :src="logo" class="object-contain" alt="Logo">
+                  </div>
+              </template>
+          </div>
         </div>
-      </div>
-      <!-- style untuk carousel -->
-      <style>
-        .carousel-container {
-          display: flex;
-          animation: scroll 15s linear infinite;
-        }
-        /* Animasi untuk membuat carousel berjalan terus-menerus */
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
+        <!-- Style untuk carousel -->
+        <style>
+          .carousel-container {
+              display: flex;
+              animation: scroll 15s linear infinite;
           }
-          100% {
-            transform: translateX(-50%);
+
+          /* Animasi untuk membuat carousel berjalan terus-menerus */
+          @keyframes scroll {
+              0% {
+                  transform: translateX(0);
+              }
+              100% {
+                  transform: translateX(-100%);
+              }
           }
-        }
-        /* Saat di-hover, hentikan animasi */
-        .paused {
-          animation-play-state: paused;
-        }
-      
-        /* Styling tambahan untuk memastikan logo tidak terlalu besar */
-        .carousel-container img {
-          width: auto;
-          height: 64px;
-        }
-      </style>
+
+          /* Saat di-hover, hentikan animasi */
+          .paused {
+              animation-play-state: paused;
+          }
+
+          /* Styling tambahan untuk memastikan logo tidak terlalu besar */
+          .carousel-container img {
+              width: auto;
+              height: 64px;
+          }
+
+          /* Pastikan setiap logo memiliki lebar yang sesuai agar tidak hilang */
+          .carousel-container > div {
+              min-width: 100px; /* Sesuaikan ukuran ini dengan desain */
+              flex-shrink: 0; /* Mencegah item mengecil terlalu banyak */
+          }
+
+          @media (max-width: 768px) {
+            .carousel-container > div {
+                min-width: 80px; /* Ukuran lebih kecil untuk layar mobile */
+            }
+          }
+        </style>
       </section>
       <!-- review -->
       <section class="container">
@@ -453,19 +371,19 @@
               x-data="{
                 reviews : [
                   {
-                    img : './src/assets/img-review.svg',
+                    img : '/img-review.svg',
                     name : 'Nugraha',
                     postion : 'Manager',
                     text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
                   },
                   {
-                    img : './src/assets/img-review.svg',
+                    img : '/img-review.svg',
                     name : 'Jhon Doe',
                     postion : 'Manager',
                     text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
                   },
                   {
-                    img : './src/assets/img-review.svg',
+                    img : '/img-review.svg',
                     name : 'Jhoniee',
                     postion : 'Manager',
                     text : 'Minance App has changed the way we manage company finances. The intuitive interface and complete features make the financial management process more efficient and accurate. I highly recommend Minance App for companies looking to optimize their financial management.'
@@ -488,7 +406,7 @@
                           <p class="text-[12px] leading-[20px] text-textGray font-inter" x-text="review.postion"></p>
                         </div>
                         <figure class="px-[13.5px] py-[13.5px] flex justify-center items-center bg-backgroundFeedbback rounded-[66.67px]">
-                          <img src="./src/assets/play-icon.svg" alt="play">
+                          <img src="/play-icon.svg" alt="play">
                         </figure>
                       </div>
                     </div>
@@ -499,72 +417,12 @@
             <div x-ref="blur" class="absolute bottom-[-10px] left-0 right-0 w-full h-[80px] md:blur-md md:bg-white"></div>
           </div>
         </div>
-      </section>
-      
+      </section> 
       <!-- get the app -->
-       <section class="container">
-        <div class="grid md:grid-cols-2 grid-cols-1 bg-black mt-[40px] rounded-[24px] sm:px-[24px] sm:pt-[24px] md:mb-[40px] mb-[24px]">
-          <div class="lg:py-[80px] lg:pl-[60px] md:py-[40px] md:pl-[60px] max-w-[428px] flex flex-col gap-[24px]">
-            <h2 class="text-[48px] leading-[48px] font-semibold font-inter bg-clip-text text-transparent bg-gradient-to-r from-[#9ABFFE] to-[#A9F9B1]">Get the Minance mobile app</h2>
-            <p class="text-[14px] leading-[24px] text-line font-inter">The First Application that is widely use and trusted by many companies</p>
-            <button class="mr-auto flex gap-[10px]">
-              <p class="text-[14px] leading-[24px] text-white font-medium font-inter">Download App</p>
-              <img class="-rotate-1" src="./src/assets/arrowRight.png" alt="arrow right">
-            </button>
-          </div>
-          <div class="flex justify-end">
-            <img class="" src="./src//assets/content-app.png" alt="content">
-          </div>
-        </div>
-       </section>
+       <section id="bannerFooter"></section>
     </main>
     <!-- footer -->
-    <footer class="bg-blueFooter w-full">
-      <div class="container">
-        <div class=" pt-[60px] grid md:grid-cols-2 grid-cols-1 justify-between">
-          <div>
-            <img src="./src/assets/logo-smallFooter.svg" alt="logo-small">
-            <p class="my-[40px] text-[14px] font-inter leading-[24px] text-line">At Minance, we help you achieve your financial goals with confidence. With 2 years of experience, we offer personalized financial planning and innovative banking services. Join us for a journey to financial stability and growth.</p>
-            <div 
-              x-data="{
-              sosmeds : [
-                { src: './src/assets/instagram.svg', name: 'Instagram' },
-                { src: './src/assets/wa.svg', name: 'WhatsApp' },
-                { src: './src/assets/youtube.svg', name: 'YouTube' },
-                { src: './src/assets/linkedin.svg', name: 'LinkedIn' },
-                { src: './src/assets/twiter.svg', name: 'Twitter' }
-                ]
-              }" 
-              class="sosmed flex space-x-4">
-              <template x-for="sosmed in sosmeds" :key="sosmed.src">
-                <figure>
-                  <img :src="sosmed.src" :alt="`${sosmed.name} logo`" class="h-8 w-8">
-                </figure>
-              </template>
-            </div>
-          </div>
-          <div class="md:flex block text-left justify-end lg:gap-[150px] md:gap-[50px] mt-[24px] mb-[60px] md:mb-0 md:mt-0">
-            <div class="">
-              <p class="text-[14px] leading-[24px] font-bold font-inter text-white">Company</p>
-              <ul class="mt-[24px] flex flex-col gap-[16px] text-line text-[14px] leading-[24px] font-inter">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-            <div class="mt-[16px] md:mt-0">
-              <p class="text-[14px] leading-[24px] font-bold font-inter text-white">Contact Us</p>
-              <p class="mt-[24px]"><a class="text-line text-[14px] leading-[24px] font-inter" href="#">+22 80 1234 4321</a></p>
-              <p class="text-[14px] leading-[24px] font-bold font-inter text-white mt-[16px]">Support</p>
-              <p class="mt-[24px]"><a class="text-line text-[14px] leading-[24px] font-inter" href="#">+22 80 1234 2233</a></p>
-            </div>
-          </div>
-        </div>
-        <figure class="lg:mt-[60px] md:mt-[42.48px] md:block hidden">
-          <img src="./src/assets/logo-bigFooter.png" alt="logo-big">
-        </figure>
-      </div>
-    </footer>
+    <footer id="footer"></footer>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

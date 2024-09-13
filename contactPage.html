@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar"></nav>
+    </header>
+    <main>
+        <!-- banner -->
+        <section class="bg-biru w-full">
+            <div class="container grid md:grid-cols-2 grid-cols-1 pt-[90px] pb-[40px] sm:gap-0 md:gap-[40px] lg:gap-0">
+                <!-- bagian kiri -->
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <h1 class="text-[48px] font-semibold leading-[64px] font-inter text-white">Contact us</h1>
+                        <p class="text-[14px] leading-[24px] text-line">Filld the form to learn, how minance can to solve your problem in our application</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-[40px] lg:gap-[20px] mt-[24px] md:mt-0">
+                        <div class="flex flex-col gap-[14px]">
+                            <p class="text-[16px] leading-[26px] font-bold font-inter text-white">Support</p>
+                            <p class="text-[14px] leading-[24px] font-inter text-line">If you need help or have questions, our support team is ready to help you. Visit the Support page for more information.</p>
+                        </div>
+                        <div class="flex flex-col gap-[14px]">
+                            <p class="text-[16px] leading-[26px] font-bold font-inter text-white">Privacy policy</p>
+                            <p class="text-[14px] leading-[24px] font-inter text-line">We are committed to protecting your privacy. Read our Privacy Policy to find out how we manage and protect your personal information.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- bagian kanan -->
+                <div class="flex justify-end">
+                    <div class="bg-white rounded-[16px] px-[20px] py-[24px] w-full lg:max-w-[538px] mt-[40px] md-mt-0">
+                        <div>
+                            <p class="text-[24px] leading-[32px] font-semibold font-inter text-black">Get in touch</p>
+                            <p class="text-[16px] leading-[26px] font-inter text-line">Read your message in this form</p>
+                        </div>
+                        <form action="#" class="mb-[12px]">
+                            <!-- first and last name -->
+                            <div class="md:flex block gap-[16px] mb-4">
+                                <div class="flex-1 border rounded-[100px] py-[14px] px-[16px] flex gap-[6px]">
+                                    <img src="/user_icon.svg" alt="icon user">
+                                    <input type="text" name="firstName" id="firstName" placeholder="First Name"
+                                        class="bg-transparent outline-none focus:ring-transparent w-full">
+                                </div>
+                                <div class="flex-1 border rounded-[100px] py-[14px] px-[16px] flex gap-[6px] mt-[16px] md:mt-0">
+                                    <img src="/user_icon.svg" alt="icon user">
+                                    <input type="text" name="lastName" id="lastName" placeholder="Last Name"
+                                        class="bg-transparent outline-none focus:ring-transparent w-full">
+                                </div>
+                            </div>
+                            <!-- email -->
+                            <div class="flex gap-[6px] border rounded-[100px] py-[14px] px-[16px]">
+                                <img src="/mail_icon.svg" alt="icon mail">
+                                <input type="email" name="email" id="email" placeholder="Your Email"
+                                    class="bg-transparent outline-none focus:ring-transparent w-full">
+                            </div>
+                            <!-- phone number -->
+                            <div class="flex mt-[16px]">
+                                <!-- drop down phone -->
+                                <div class="border rounded-tl-[100px] rounded-bl-[100px] py-[14px] px-[10px] bg-line">
+                                    <div x-data="{ open: false, selectNum: '+62' }">
+                                        <!-- Toggler Dropdown -->
+                                        <div class="flex items-center cursor-pointer" @click="open = !open">
+                                            <img :src="selectNum === '+62' ? '/Indonesian_flag.svg' : '/England_flag.svg'" alt="flag">
+                                            <img class="transform transition-transform duration-200" src="/arrowBack.png" alt="arrow" :class="open ? 'rotate-90' : '-rotate-90'">
+                                            <p x-text="selectNum"></p>
+                                        </div>
+                                        <!-- Dropdown Menu -->
+                                        <div x-show="open" class="mt-2 bg-white absolute border rounded-lg shadow-lg p-2 z-10">
+                                            <ul>
+                                                <li @click="selectNum = '+62'; open = false" class="cursor-pointer px-2 py-1 hover:bg-gray-100">+62</li>
+                                                <li @click="selectNum = '+44'; open = false" class="cursor-pointer px-2 py-1 hover:bg-gray-100">+44</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-[6px] border rounded-tr-[100px] rounded-br-[100px] py-[14px] px-[16px]">
+                                    <input type="number" name="phoneNumber" id="phoneNumber" placeholder="000 000 000"
+                                        class="bg-transparent outline-none focus:ring-transparent w-full">
+                                </div>
+                            </div>
+                            <!-- message -->
+                            <div class="flex border rounded-[24px] py-[14px] px-[16px] mt-[16px]">
+                                <textarea name="message" id="message" rows="4" placeholder="How can we help?" 
+                                    class="bg-transparent outline-none focus:ring-transparent w-full resize-none"></textarea>
+                            </div>
+                            <!-- Register Button -->
+                            <button type="submit"
+                                class="btn btn__primary w-full rounded-[100px] mt-[16px]">
+                                sign up
+                            </button>
+                        </form>
+                          
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container mx-auto pt-[60px]">
+            <div class="md:flex block md:mt-0  justify-between">
+                <div class="w-[328px]">
+                    <p>Contact Us</p>
+                    <div class="mt-[24px]">
+                        <div class="flex gap-[6px]">
+                            <img src="/phone_icon.svg" alt="phone icon">
+                            <p class="text-[14px] leading-[24px] text-line font-inter">+22 80 1234 4321</p>
+                        </div>
+                        <div class="flex gap-[6px] my-[16px]">
+                            <img src="/mailBlue_icon.svg" alt="phone icon">
+                            <p class="text-[14px] leading-[24px] text-line font-inter">finance@minance.com</p>
+                        </div>
+                        <div class="flex gap-[6px]">
+                            <img src="/location_icon.svg" alt="phone icon">
+                            <p class="text-[14px] leading-[24px] text-line font-inter">4517 Washington Ave. Manchester, Kentucky 39495</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div 
+                    class="max-w-[450px] mt-[32px] md:mt-0"
+                    x-data="{
+                        faqs: [
+                            {
+                                id: '1',
+                                question: 'What makes Minance different from other applications?',
+                                answer: 'Minance offers personalized financial planning according to your financial profile and goals. We understand that each individual has unique needs and goals.'
+                            },
+                            {
+                                id: '2',
+                                question: 'How do I start using Minance App?',
+                                answer: 'Minance offers personalized financial planning according to your financial profile and goals. We understand that each individual has unique needs and goals.'
+                            },
+                            {
+                                id: '3',
+                                question: 'Is Minance safe to use?',
+                                answer: 'Minance offers personalized financial planning according to your financial profile and goals. We understand that each individual has unique needs and goals.'
+                            },
+                            {
+                                id: '4',
+                                question: 'How does financial planning work on Minance App?',
+                                answer: 'Minance offers personalized financial planning according to your financial profile and goals. We understand that each individual has unique needs and goals.'
+                            },
+                            {
+                                id: '5',
+                                question: 'Is Minance App compatible with my device?',
+                                answer: 'Minance offers personalized financial planning according to your financial profile and goals. We understand that each individual has unique needs and goals.'
+                            }
+                        ],
+                        openId: null
+                    }">
+                        <template x-for="faq in faqs" :key="faq.id">
+                            <div class="mb-4 border-b-[1.5px] pb-[24px] border-gray-200 duration-500 transition-ease-in-out">
+                                <!-- Question -->
+                                <div  
+                                @mouseover="openId = faq.id" 
+                                @mouseleave="openId = null"
+                                class="flex ">
+                                    <img src="/arrowBlue.svg" alt="arrowBlue"
+                                    class="mr-[12px] object-contain duration-500 transition-ease-in-out" 
+                                    :class="openId === faq.id ? 'rotate-180' : 'rotate-0'"
+                                    >
+                                    <h3
+                                        class="cursor-pointer text-lg font-semibold">
+                                        <span class="duration-500 transition-ease-in-out" x-text="faq.question"></span>
+                                    </h3>
+                                </div>
+                                
+                                <!-- Answer with smooth transition -->
+                                <div 
+                                    x-show="openId === faq.id"
+                                    class="transition-all duration-500 ease-in-out overflow-hidden"
+                                    :class="openId === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'">
+                                    <p x-text="faq.answer" class="mt-2 text-gray-700"></p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="bannerFooter"></section>
+    </main>
+    <footer id="footer">
+
+    </footer>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

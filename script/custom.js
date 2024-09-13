@@ -1,3 +1,4 @@
+// load component
 function loadComponent(containerId, componentUrl) {
     fetch(componentUrl)
         .then(response => response.text())
@@ -10,4 +11,11 @@ function loadComponent(containerId, componentUrl) {
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('navbar', '../src/components/navbar.html');
 });
+document.addEventListener('DOMContentLoaded', () => {
+    loadComponent('bannerFooter', '../src/components/bannerFooter.html');
+});
+document.addEventListener('DOMContentLoaded', () => {
+    loadComponent('footer', '../src/components/footer.html');
+});
 
+// end load component

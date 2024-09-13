@@ -17,7 +17,7 @@
                 <p class="text-[14px] leading-[24px] font-inter text-line mt-[16px]">We provide transactions with many currencies in the world and trusted security to protect your wallet.</p>
             </div>
             <figure class="mt-auto">
-                <img class="w-full" src="./src/assets/bg-login.png" alt="background login">
+                <img class="w-full" src="/bg-login.png" alt="background login">
             </figure>
         </div>
 
@@ -26,7 +26,7 @@
             <div class="p-6 border border-line mt-[-250px] md:mt-0 md:border-none rounded-[24px] w-[384px] bg-white">
                 <!-- Back Button -->
                 <a class="flex items-center mb-6 hover:cursor-pointer" href="./index.html">
-                    <img class=" mr-2" src="./src/assets/arrowBack.png" alt="arrow">
+                    <img class=" mr-2" src="/arrowBack.png" alt="arrow">
                     <p>Back</p>
                 </a>
                 <!-- Register Form -->
@@ -35,19 +35,19 @@
                     <!-- first and last name -->
                     <div class="md:flex block gap-[16px] mb-4">
                         <div class="flex-1 border rounded-[100px] py-[14px] px-[16px] flex gap-[6px]">
-                            <img src="./src/assets/mail_icon.svg" alt="ico mail">
+                            <img src="/mail_icon.svg" alt="ico mail">
                             <input type="text" name="firstName" id="firstName" placeholder="First Name"
                                 class="bg-transparent outline-none focus:ring-transparent w-full">
                         </div>
                         <div class="flex-1 border rounded-[100px] py-[14px] px-[16px] flex gap-[6px] mt-[16px] md:mt-0">
-                            <img src="./src/assets/mail_icon.svg" alt="ico mail">
+                            <img src="/mail_icon.svg" alt="ico mail">
                             <input type="text" name="lastName" id="lastName" placeholder="Last Name"
                                 class="bg-transparent outline-none focus:ring-transparent w-full">
                         </div>
                     </div>
                     <!-- email -->
                     <div class="flex gap-[6px] border rounded-[100px] py-[14px] px-[16px]">
-                        <img src="./src/assets/mail_icon.svg" alt="ico mail">
+                        <img src="/mail_icon.svg" alt="ico mail">
                         <input type="text" name="email" id="email" placeholder="your email" 
                             class="bg-transparent outline-none focus:ring-transparent">
                     </div>
@@ -58,8 +58,8 @@
                             <div x-data="{ open: false, selectNum: '+62' }">
                                 <!-- Toggler Dropdown -->
                                 <div class="flex items-center space-x-2 cursor-pointer" @click="open = !open">
-                                    <img :src="selectNum === '+62' ? './src/assets/Indonesian_flag.svg' : './src/assets/England_flag.svg'" alt="flag">
-                                    <img class="transform transition-transform duration-200" src="./src/assets/arrowBack.png" alt="arrow" :class="open ? 'rotate-90' : '-rotate-90'">
+                                    <img :src="selectNum === '+62' ? '/Indonesian_flag.svg' : '/England_flag.svg'" alt="flag">
+                                    <img class="transform transition-transform duration-200" src="/arrowBack.png" alt="arrow" :class="open ? 'rotate-90' : '-rotate-90'">
                                     <p x-text="selectNum"></p>
                                 </div>
                                 <!-- Dropdown Menu -->
@@ -79,7 +79,7 @@
                     </div>
                     <!-- password -->
                     <div class="flex gap-[6px] border rounded-[100px] py-[14px] px-[16px] mt-[16px]">
-                        <img src="./src/assets/pw_icon.svg" alt="password icon" >
+                        <img src="/pw_icon.svg" alt="password icon" >
                         <input type="password" name="password" id="password" placeholder="*********"
                             class=" rounded-md focus:outline-none focus:ring-2 focus:ring-transparent">
                     </div>
@@ -112,7 +112,7 @@
                   <!-- google login -->
                    <div>
                     <button class="flex rounded-[100px] bg-btnGoogle w-full py-[14px] justify-center items-center text-center gap-[6px]">
-                        <img src="./src/assets/googleIcon.svg" alt="icon google">
+                        <img src="/googleIcon.svg" alt="icon google">
                         <p>Login with Google</p>
                     </button>
                    </div>
