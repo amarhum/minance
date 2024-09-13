@@ -106,42 +106,42 @@
                         <p class="lg:text-[16px] lg:leading-[26px] md:text-[14px] md:leading-[24px] font-inter text-line">Our team consists of experienced professionals in technology and finance who are dedicated to providing the best solutions for users.</p>
                     </div>
                 </div>
-                <div 
-                class="flex gap-[24px] overflow-x-scroll pb-[50px] mt-[40px]"
-                x-data="{
-                    teams: [
-                    {
-                        img: '/personTeam1.png',
-                        name: 'Deni manusia ikan',
-                        role: '3D Designer',
-                    },
-                    {
-                        img: '/personTeam2.png',
-                        name: 'Nugraha',
-                        role: 'CEO of Minance App',
-                    },
-                    {
-                        img: '/personTeam3.png',
-                        name: 'Purwa',
-                        role: 'UI/UX Designer',
-                    },
-                    {
-                        img: '/personTeam4.png',
-                        name: 'Yayan Kurnia',
-                        role: 'Marketing specialist',
-                    },
-                    ]
-                }">
+                    <div 
+                    class="flex gap-[24px] overflow-x-scroll pb-[50px] mt-[40px]"
+                    x-data="{
+                        teams: [
+                        {
+                            img: '/personTeam1.png',
+                            name: 'Deni manusia ikan',
+                            role: '3D Designer',
+                        },
+                        {
+                            img: '/personTeam2.png',
+                            name: 'Nugraha',
+                            role: 'CEO of Minance App',
+                        },
+                        {
+                            img: '/personTeam3.png',
+                            name: 'Purwa',
+                            role: 'UI/UX Designer',
+                        },
+                        {
+                            img: '/personTeam4.png',
+                            name: 'Yayan Kurnia',
+                            role: 'Marketing specialist',
+                        },
+                        ]
+                    }">
                     <template x-for="team in teams" :key="team.name">
-                        <figure class="flex flex-col">
-                        <!-- Container for the image with fixed height and width -->
-                        <div class="bg-team rounded-[14px] h-[492px] flex">
-                            <img class="object-cover w-full h-full" :src="team.img" alt="person team">
-                        </div>
-                        <figcaption class="mt-4">
-                            <p class="font-semibold text-[24px] leading-[32px] text-white" x-text="team.name"></p>
-                            <p class="text-line text-[16px] leading-[26px] font-inter" x-text="team.role"></p>
-                        </figcaption>
+                        <figure class="flex flex-col flex-shrink-0">
+                            <!-- Container for the image -->
+                            <div class="bg-team rounded-[14px] aspect-w-1 aspect-h-1 w-[200px] md:w-[250px] lg:w-[300px] flex">
+                                <img class="object-cover w-full h-full rounded-[14px]" :src="team.img" alt="person team">
+                            </div>
+                            <figcaption class="mt-4 text-center">
+                                <p class="font-semibold text-[24px] leading-[32px] text-white" x-text="team.name"></p>
+                                <p class="text-line text-[16px] leading-[26px] font-inter" x-text="team.role"></p>
+                            </figcaption>
                         </figure>
                     </template>
                 </div>
@@ -154,13 +154,17 @@
                 <p class="text-textGray text-[14px] leading-[24px] font-inter">Meet Team and discussion about Minance Management</p>
             </div>
             <div>
-                <div x-data="{ isPlaying: false }">
-                    <video x-ref="video" class="w-full rounded-[16px]" src="/vidio_alam.mp4" controls></video>
-                    <button @click="isPlaying ? $refs.video.pause() : $refs.video.play(); isPlaying = !isPlaying">
-                        <span x-text="isPlaying ? 'Pause' : 'Play'"></span>
+                <div x-data="{ isPlaying: false }" class="relative">
+                    <video x-ref="video" class="w-full rounded-[16px]" src="/vidio_alam.mp4" controls @play="isPlaying = true" @pause="isPlaying = false" @ended="isPlaying = false"></video>
+                    <!-- Play Button -->
+                    <button 
+                        :class="isPlaying ? 'hidden' : 'block'" 
+                        class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-[26.67px] rounded-full bg-white"
+                        @click="isPlaying ? $refs.video.pause() : $refs.video.play(); isPlaying = !isPlaying">
+                        <img :src="isPlaying ? '' : '/play_fill.svg'" alt="play">
                     </button>
-                </div>         
-            </div>
+                </div>
+            </div>            
             <div class="grid grid-cols-3 items-center gap-[26px] mt-[40px] mb-[40px]" x-data = "{
                 statistik : [
                 {
@@ -177,7 +181,7 @@
                 }
                 ]}">
                   <template x-for="stat in statistik" :key="stat.f">
-                    <div class="text-center flex flex-col ">
+                    <div class="text-center flex flex-col mb-auto">
                       <p class="font-inter justify-start items-start font-semibold text-black text-[32px] leading-[42px] md:text-[40px] md:leading-[54px]" x-text="stat.f"></p>
                       <p class="text-line text-[14px] leading-[24px] font-inter" x-text="stat.s"></p>
                     </div>
